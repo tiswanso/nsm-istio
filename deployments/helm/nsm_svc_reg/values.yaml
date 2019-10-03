@@ -1,0 +1,19 @@
+# Default values for nsm_svc_reg.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+registry: docker.io
+org: tiswanso
+tag: latest
+pullPolicy: IfNotPresent
+
+# Indicate the secret created with the service registry cluster's kubeconfig
+svcRegKubeConfigSecret: svcregkubeconfig
+
+# Indicate the secret created with the kubeconfig for the cluster to watch for NSM client apps
+watchKubeConfigSecret: watchkubeconfig
+
+# Set this value to the namespace to watch for NSM client apps or leave empty to watch all namespaces
+watchNamespace: ""
+
+#global:
