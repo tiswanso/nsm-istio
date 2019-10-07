@@ -18,7 +18,7 @@ spec:
           image: {{ .Values.registry }}/{{ .Values.org }}/nsm_svc_reg:{{ .Values.tag }}
           imagePullPolicy: {{ .Values.pullPolicy }}
           command: [ "/usr/bin/nsm_svc_reg", "pod-watcher" ]
-          args: [ "--kubeconfig", "/etc/svcreg/kubeconfig", "--kubeconfigremote", "/etc/remote/kubeconfig", "-a", "$(NAMESPACE)" ]
+          args: [ "--kubeconfig", "/etc/watch/kubeconfig", "--kubeconfigremote", "/etc/svcreg/kubeconfig", "-a", "$(NAMESPACE)" ]
           env:
           - name: NAMESPACE
             value: {{ .Values.watchNamespace }}
@@ -26,13 +26,13 @@ spec:
           - name: svcregclusterdata
             mountPath: "/etc/svcreg"
             readOnly: true
-          - name: remoteclusterdata
-            mountPath: "/etc/remote"
+          - name: watchclusterdata
+            mountPath: "/etc/watch"
             readOnly: true
       volumes:
       - name: svcregclusterdata
         secret:
           secretName: {{ .Values.svcRegKubeConfigSecret }}
-      - name: remoteclusterdata
+      - name: watchclusterdata
         secret:
           secretName: {{ .Values.watchKubeConfigSecret }}
