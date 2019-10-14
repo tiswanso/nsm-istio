@@ -4,10 +4,10 @@ go 1.12
 
 require (
 	github.com/hashicorp/go-multierror v1.0.0
-	github.com/spf13/cobra v0.0.3
+	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.4.0
 	istio.io/istio v0.0.0-20191002014124-994079266c63
-	istio.io/pkg v0.0.0-20190813222952-67b4f108fe0e
+	istio.io/pkg v0.0.0-20190905225920-6d0bbfe3b229
 	k8s.io/api v0.0.0
 	k8s.io/apimachinery v0.0.0
 	k8s.io/client-go v11.0.1-0.20190409021438-1a26190bd76a+incompatible
